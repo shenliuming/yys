@@ -1,0 +1,15 @@
+[SOURCE]
+1\SOURCEFILE=D:/Documents/xspworkspace/yys/xsp/src/common.lua
+size=5
+2\SOURCEFILE=D:/Documents/xspworkspace/yys/xsp/src/main.lua
+3\SOURCEFILE=D:/Documents/xspworkspace/yys/xsp/src/ui.lua
+4\SOURCEFILE=D:/Documents/xspworkspace/yys/xsp/src/json.lua
+5\SOURCEFILE=D:/Documents/xspworkspace/yys/xsp/src/database.lua
+
+[UI]
+1\UIFILE=D:/Documents/xspworkspace/yys/xsp/ui/ScreenOrientation.json
+size=2
+2\UIFILE=D:/Documents/xspworkspace/yys/xsp/ui/ui.json
+
+[RES]
+size=0
