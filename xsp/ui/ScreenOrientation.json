@@ -1,0 +1,29 @@
+{
+   "style" : "custom",
+   "config" : "save_data.dat",
+   "width" : 500,
+   "height" : 600,
+   "bg" : "bg.png",
+   "cancelname" : "取消",
+   "okname" : "确定",
+   "views" : [
+      {
+         "mid" : "1",
+         "id" : "RadioGroup1",
+         "type" : "RadioGroup",
+         "list" : "HOME键在左",
+         "select" : "0",
+         "size" : "15",
+         "rect" : "29,170,120,28"
+      },
+      {
+         "mid" : "2",
+         "id" : "RadioGroup2",
+         "type" : "RadioGroup",
+         "list" : "HOME键在右",
+         "select" : "0",
+         "size" : "15",
+         "rect" : "221,169,120,28"
+      }
+   ]
+}
