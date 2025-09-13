@@ -125,8 +125,8 @@ class ExplorationTask(Task):
         self.config = {
             "exploration_level": ExplorationLevel.CHAPTER_28,
             "auto_rotate": True,  # 开启自动轮换
-            "limit_time": timedelta(minutes=30),  # 30分钟
-            "minions_cnt": 9999,  # 循环次数9999
+            "limit_time": timedelta(minutes=99999),  # 99999分钟
+            "minions_cnt": 99999,  # 循环次数99999
             "up_type": UpType.ALL,
             "mode": "solo",  # 单人模式
             "buff_gold_50": False,
@@ -1810,8 +1810,8 @@ def load_config() -> Dict[str, Any]:
         "exploration_level": "CHAPTER_28",
         "difficulty_level": "NORMAL",
         "auto_rotate": False,
-        "limit_time_minutes": 30,
-        "minions_cnt": 30,
+        "limit_time_minutes": 99999,
+        "minions_cnt": 99999,
         "up_type": "ALL",
         "buff_gold_50": False,
         "buff_gold_100": False,
@@ -2082,11 +2082,8 @@ def main():
         print(f"战斗次数: {task.config['minions_cnt']}")
         print(f"时间限制: {task.config['limit_time']}")
         
-        # 确认开始
-        confirm = input("\n确认开始探索任务? (y/n): ")
-        if confirm.lower() != 'y':
-            print("任务取消")
-            return
+        # 直接启动任务，无需用户确认
+        print("\n开始执行探索任务...")
         
         # 启动任务
         logger.info("启动探索任务")

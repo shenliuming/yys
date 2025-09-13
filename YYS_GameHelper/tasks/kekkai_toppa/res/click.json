@@ -1,0 +1,32 @@
+[
+  {
+    "itemName": "select_first_ryou",
+    "roiFront": "1148,138,21,22",
+    "roiBack": "1148,138,21,22",
+    "description": "选择第一个寮"
+  },
+  {
+    "itemName": "select_ryou_button",
+    "roiFront": "560,577,156,46",
+    "roiBack": "560,577,156,46",
+    "description": "寮突选择阴阳寮按钮"
+  },
+  {
+    "itemName": "start_toppa_button",
+    "roiFront": "832,279,130,43",
+    "roiBack": "1,1,1055,718",
+    "description": "开始寮突按钮"
+  },
+  {
+    "itemName": "toppa_lock_team",
+    "roiFront": "203,602,26,32",
+    "roiBack": "203,602,26,32",
+    "description": "寮突锁定队伍按钮"
+  },
+  {
+    "itemName": "toppa_unlock_team",
+    "roiFront": "202,603,25,31",
+    "roiBack": "202,603,25,31",
+    "description": "寮突解锁队伍按钮"
+  }
+]

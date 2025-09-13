@@ -1,0 +1,29 @@
+[
+  {
+    "itemName": "guild_toppa_number",
+    "roi": "271,560,48,31",
+    "area": "271,560,48,31",
+    "mode": "DigitCounter",
+    "method": "Default",
+    "keyword": "",
+    "description": "寮突破进攻机会数"
+  },
+  {
+    "itemName": "personal_toppa_number",
+    "roi": "200,600,60,30",
+    "area": "200,600,60,30",
+    "mode": "DigitCounter",
+    "method": "Default",
+    "keyword": "",
+    "description": "个人突破进攻机会数"
+  },
+  {
+    "itemName": "toppa_progress",
+    "roi": "500,100,200,50",
+    "area": "500,100,200,50",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "%",
+    "description": "突破进度百分比"
+  }
+]

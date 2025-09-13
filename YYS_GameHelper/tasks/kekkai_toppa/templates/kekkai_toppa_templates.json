@@ -1,0 +1,278 @@
+{
+  "task_name": "结界突破",
+  "description": "结界突破任务相关的图像识别模板配置",
+  "version": "1.0.0",
+  "templates": {
+    "navigation": {
+      "description": "导航相关模板",
+      "items": {
+        "kekkai_toppa_title": {
+          "name": "结界突破标题",
+          "file": "kekkai_toppa_title.png",
+          "threshold": 0.8,
+          "roi": [1065, 3, 203, 61],
+          "description": "结界突破页面右上角标题"
+        },
+        "realm_raid_button": {
+          "name": "个人突破按钮",
+          "file": "realm_raid_button.png",
+          "threshold": 0.8,
+          "roi": [400, 500, 200, 80],
+          "description": "个人突破入口按钮"
+        },
+        "back_button": {
+          "name": "返回按钮",
+          "file": "back_button.png",
+          "threshold": 0.8,
+          "roi": [50, 50, 100, 50],
+          "description": "通用返回按钮"
+        }
+      }
+    },
+    "status_check": {
+      "description": "状态检查相关模板",
+      "items": {
+        "success_penetration": {
+          "name": "攻破阴阳寮",
+          "file": "success_penetration.png",
+          "threshold": 0.8,
+          "roi": [141, 374, 234, 37],
+          "description": "100%攻破标志"
+        },
+        "ryou_reward": {
+          "name": "寮奖励",
+          "file": "ryou_reward.png",
+          "threshold": 0.8,
+          "roi": [134, 417, 241, 40],
+          "description": "寮奖励标志，表示结界突破已开启"
+        },
+        "select_ryou_button": {
+          "name": "选择寮突破",
+          "file": "select_ryou_button.png",
+          "threshold": 0.8,
+          "roi": [400, 300, 200, 80],
+          "description": "选择寮突破按钮，表示有管理权限"
+        },
+        "no_select_ryou": {
+          "name": "晴明头像",
+          "file": "no_select_ryou.png",
+          "threshold": 0.8,
+          "roi": [400, 300, 200, 200],
+          "description": "晴明头像，表示结界突破未开启"
+        }
+      }
+    },
+    "team_control": {
+      "description": "队伍控制相关模板",
+      "items": {
+        "lock_team_button": {
+          "name": "锁定队伍按钮",
+          "file": "lock_team_button.png",
+          "threshold": 0.8,
+          "roi": [1000, 600, 100, 50],
+          "description": "锁定队伍按钮"
+        },
+        "unlock_team_button": {
+          "name": "解锁队伍按钮",
+          "file": "unlock_team_button.png",
+          "threshold": 0.8,
+          "roi": [1000, 600, 100, 50],
+          "description": "解锁队伍按钮"
+        }
+      }
+    },
+    "areas": {
+      "description": "8个区域相关模板",
+      "items": {
+        "area_1": {
+          "name": "区域1",
+          "click_pos": [621, 199],
+          "fail_check": {
+            "roi": [673, 146, 63, 32],
+            "file": "area_fail.png",
+            "threshold": 0.8
+          },
+          "finished_check": {
+            "roi": [658, 141, 93, 91],
+            "file": "area_finished.png",
+            "threshold": 0.8
+          }
+        },
+        "area_2": {
+          "name": "区域2",
+          "click_pos": [954, 200],
+          "fail_check": {
+            "roi": [1011, 146, 63, 30],
+            "file": "area_fail.png",
+            "threshold": 0.8
+          },
+          "finished_check": {
+            "roi": [983, 137, 100, 100],
+            "file": "area_finished.png",
+            "threshold": 0.8
+          }
+        },
+        "area_3": {
+          "name": "区域3",
+          "click_pos": [623, 336],
+          "fail_check": {
+            "roi": [665, 283, 73, 40],
+            "file": "area_fail.png",
+            "threshold": 0.8
+          },
+          "finished_check": {
+            "roi": [681, 312, 47, 37],
+            "file": "area_finished.png",
+            "threshold": 0.8
+          }
+        },
+        "area_4": {
+          "name": "区域4",
+          "click_pos": [949, 332],
+          "fail_check": {
+            "roi": [1000, 283, 72, 38],
+            "file": "area_fail.png",
+            "threshold": 0.8
+          },
+          "finished_check": {
+            "roi": [996, 271, 100, 100],
+            "file": "area_finished.png",
+            "threshold": 0.8
+          }
+        },
+        "area_5": {
+          "name": "区域5",
+          "click_pos": [625, 466],
+          "fail_check": {
+            "roi": [669, 419, 65, 29],
+            "file": "area_fail.png",
+            "threshold": 0.8
+          },
+          "finished_check": {
+            "roi": [647, 404, 100, 100],
+            "file": "area_finished.png",
+            "threshold": 0.8
+          }
+        },
+        "area_6": {
+          "name": "区域6",
+          "click_pos": [959, 466],
+          "fail_check": {
+            "roi": [988, 416, 84, 37],
+            "file": "area_fail.png",
+            "threshold": 0.8
+          },
+          "finished_check": {
+            "roi": [1015, 448, 56, 35],
+            "file": "area_finished.png",
+            "threshold": 0.8
+          }
+        },
+        "area_7": {
+          "name": "区域7",
+          "click_pos": [613, 594],
+          "fail_check": {
+            "roi": [672, 556, 61, 37],
+            "file": "area_fail.png",
+            "threshold": 0.8
+          },
+          "finished_check": {
+            "roi": [643, 543, 100, 100],
+            "file": "area_finished.png",
+            "threshold": 0.8
+          }
+        },
+        "area_8": {
+          "name": "区域8",
+          "click_pos": [951, 594],
+          "fail_check": {
+            "roi": [1004, 556, 64, 29],
+            "file": "area_fail.png",
+            "threshold": 0.8
+          },
+          "finished_check": {
+            "roi": [983, 541, 100, 100],
+            "file": "area_finished.png",
+            "threshold": 0.8
+          }
+        }
+      }
+    },
+    "battle": {
+      "description": "战斗相关模板",
+      "items": {
+        "battle_start": {
+          "name": "战斗开始",
+          "file": "battle_start.png",
+          "threshold": 0.8,
+          "roi": [0, 0, 1280, 720],
+          "description": "战斗开始标志"
+        },
+        "battle_end_win": {
+          "name": "战斗胜利",
+          "file": "battle_win.png",
+          "threshold": 0.8,
+          "roi": [400, 200, 480, 320],
+          "description": "战斗胜利标志"
+        },
+        "battle_end_lose": {
+          "name": "战斗失败",
+          "file": "battle_lose.png",
+          "threshold": 0.8,
+          "roi": [400, 200, 480, 320],
+          "description": "战斗失败标志"
+        },
+        "confirm_button": {
+          "name": "确认按钮",
+          "file": "confirm_button.png",
+          "threshold": 0.8,
+          "roi": [500, 500, 200, 80],
+          "description": "通用确认按钮"
+        }
+      }
+    },
+    "ocr": {
+      "description": "OCR识别相关配置",
+      "items": {
+        "ticket_count": {
+          "name": "进攻机会数",
+          "roi": [271, 560, 48, 31],
+          "mode": "digit",
+          "description": "剩余进攻机会数量"
+        },
+        "area_hp": {
+          "name": "区域血量",
+          "roi": [600, 100, 100, 30],
+          "mode": "digit",
+          "description": "区域剩余血量"
+        }
+      }
+    }
+  },
+  "image_files": {
+    "description": "需要的图像文件列表",
+    "files": [
+      "kekkai_toppa_title.png",
+      "realm_raid_button.png",
+      "back_button.png",
+      "success_penetration.png",
+      "ryou_reward.png",
+      "select_ryou_button.png",
+      "no_select_ryou.png",
+      "lock_team_button.png",
+      "unlock_team_button.png",
+      "area_fail.png",
+      "area_finished.png",
+      "battle_start.png",
+      "battle_win.png",
+      "battle_lose.png",
+      "confirm_button.png"
+    ]
+  },
+  "notes": {
+    "roi_format": "[x, y, width, height] - 左上角坐标和宽高",
+    "click_pos_format": "[x, y] - 点击坐标",
+    "threshold_range": "0.0 - 1.0, 数值越高匹配越严格",
+    "coordinate_system": "基于1280x720分辨率的坐标系统"
+  }
+}
