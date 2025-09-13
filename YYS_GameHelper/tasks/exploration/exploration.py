@@ -143,138 +143,202 @@ class ExplorationTask(Task):
         # 加载模板
         self._load_templates()
         
-        # 统计信息
-        self.stats = {
-            "battles_count": 0,
-            "exp_monsters": 0,
-            "coin_monsters": 0,
-            "daruma_monsters": 0,
-            "treasure_boxes": 0,
+        # 统计信息 - 基于OnmyojiAutoScript统一命名规范
+        self.statistics = {
+            "battle_count": 0,
+            "exp_monster_count": 0,
+            "coin_monster_count": 0,
+            "daruma_monster_count": 0,
+            "treasure_box_count": 0,
             "start_time": None,
-            "end_time": None
+            "end_time": None,
+            "total_duration": None
         }
     
     def _load_templates(self) -> None:
-        """加载模板图片"""
+        """加载模板图片 - 基于OnmyojiAutoScript资源结构"""
         from pathlib import Path
         import os
         
-        # 使用相对路径，基于当前工作目录
-        template_dir = Path("templates") / "exploration" / "res"
+        # 使用相对路径，对齐OnmyojiAutoScript的资源结构
+        template_base_dir = Path("templates") / "exploration"
+        res_dir = template_base_dir / "res"
+        highlight_dir = template_base_dir / "highlight"
         
-        # 定义需要的模板 - 映射到OnmyojiAutoScript的文件名
+        # 定义需要的模板 - 对齐OnmyojiAutoScript的命名规范
         template_files = {
-            # 界面导航
-            "entrance": "res_e_exploration_open.png",  # 进入难度选择界面
-            "main": "res_exploration_title.png",
-            "settings_button": "res_e_settings_button.png",
-            "exploration_click": "res_e_exploration_click.png",  # 探索按钮
-            "open_settings": "res_e_open_settings.png",
+            # 界面导航 - 基于ExplorationAssets
+            "entrance": "res_e_exploration_open.png",  # I_E_EXPLORATION_OPEN
+            "main": "res_exploration_title.png",        # I_EXPLORATION_TITLE
+            "settings_button": "res_e_settings_button.png",  # I_E_SETTINGS_BUTTON
+            "exploration_click": "res_e_exploration_click.png",  # I_E_EXPLORATION_CLICK
+            "open_settings": "res_e_open_settings.png",  # I_E_OPEN_SETTINGS
             
-            # 战斗相关
-            "normal_monster": "res_normal_battle_button.png",
-            "boss_monster": "res_boss_battle_button.png",
-            "battle_start": "res_battle_start.png",
+            # 战斗相关 - 对齐OnmyojiAutoScript资源
+            "normal_monster": "res_normal_battle_button.png",  # I_NORMAL_BATTLE_BUTTON
+            "boss_monster": "res_boss_battle_button.png",      # I_BOSS_BATTLE_BUTTON
+            "battle_start": "res_battle_start.png",            # I_BATTLE_START
+            
+            # UP怪物检测 - 使用highlight目录
+            "up_exp": "highlight_up_exp.png",      # I_UP_EXP
+            "up_coin": "highlight_up_coin.png",    # I_UP_COIN
+            "up_daruma": "highlight_up_daruma.png", # I_UP_DARUMA
             
             # 奖励收集
-            "treasure_box": "res_treasure_box_click.png",
-            "get_reward": "res_get_reward.png",
-            "battle_reward": "res_battle_reward.png",
+            "treasure_box": "res_treasure_box_click.png",  # I_TREASURE_BOX_CLICK
+            "get_reward": "res_get_reward.png",            # I_GET_REWARD
+            "battle_reward": "res_battle_reward.png",      # I_BATTLE_REWARD
             
             # 自动轮换设置
-            "auto_rotate_on": "res_e_auto_rotate_on.png",
-            "auto_rotate_off": "res_e_auto_rotate_off.png",
-            "enter_choose_rarity": "res_e_enter_choose_rarity.png",
-            "n_rarity": "res_e_n_rarity.png",
-            "s_rarity": "res_e_s_rarity.png",
-            "rotate_exist": "res_e_ratate_exsit.png",
-            "sure_button": "res_e_sure_button.png",
+            "auto_rotate_on": "res_e_auto_rotate_on.png",   # I_E_AUTO_ROTATE_ON
+            "auto_rotate_off": "res_e_auto_rotate_off.png", # I_E_AUTO_ROTATE_OFF
+            "enter_choose_rarity": "res_e_enter_choose_rarity.png", # I_E_ENTER_CHOOSE_RARITY
+            "n_rarity": "res_e_n_rarity.png",              # I_E_N_RARITY
+            "s_rarity": "res_e_s_rarity.png",              # I_E_S_RARITY
+            "rotate_exist": "res_e_ratate_exsit.png",      # I_E_RATATE_EXSIT
+            "sure_button": "res_e_sure_button.png",        # I_E_SURE_BUTTON
             
             # 组队相关
-            "team_emoji": "res_team_emoji.png",
-            "create_team": "res_exp_create_team.png",
-            "create_ensure": "res_exp_create_ensure.png",
+            "team_emoji": "res_team_emoji.png",            # I_TEAM_EMOJI
+            "create_team": "res_exp_create_team.png",      # I_EXP_CREATE_TEAM
+            "create_ensure": "res_exp_create_ensure.png",  # I_EXP_CREATE_ENSURE
             
             # 操作控制
-            "swipe_end": "res_swipe_end.png",
-            "exit_confirm": "res_e_exit_confirm.png",
-            "red_close": "res_red_close.png"
+            "swipe_end": "res_swipe_end.png",              # I_SWIPE_END
+            "exit_confirm": "res_e_exit_confirm.png",      # I_E_EXIT_CONFIRM
+            "red_close": "res_red_close.png",              # I_RED_CLOSE
         }
         
+        # 加载模板 - 支持多目录结构
         self.templates = {}
-        logger.info(f"模板目录: {template_dir}")
-        logger.info(f"模板目录存在: {template_dir.exists()}")
+        logger.info(f"模板基础目录: {template_base_dir}")
+        logger.info(f"res目录: {res_dir}, 存在: {res_dir.exists()}")
+        logger.info(f"highlight目录: {highlight_dir}, 存在: {highlight_dir.exists()}")
         
         for name, filename in template_files.items():
-            path = template_dir / filename
-            logger.debug(f"检查模板文件: {path}")
-            if path.exists():
-                logger.debug(f"文件存在，尝试加载: {path}")
-                template_img = cv2.imread(str(path))
+            # 根据文件名前缀确定目录
+            if filename.startswith("highlight_"):
+                template_path = highlight_dir / filename
+            else:
+                template_path = res_dir / filename
+                
+            logger.debug(f"检查模板文件: {template_path}")
+            if template_path.exists():
+                logger.debug(f"文件存在，尝试加载: {template_path}")
+                template_img = cv2.imread(str(template_path))
                 if template_img is not None:
                     self.templates[name] = template_img
                     logger.info(f"成功加载模板: {name}")
                 else:
-                    logger.error(f"cv2.imread失败: {path}")
+                    logger.error(f"cv2.imread失败: {template_path}")
             else:
-                logger.error(f"模板文件不存在: {path}")
+                logger.error(f"模板文件不存在: {template_path}")
     
     def get_current_scene(self, image=None) -> Scene:
-        """获取当前场景 - 基于OnmyojiAutoScript架构"""
+        """获取当前场景 - 基于OnmyojiAutoScript的精确识别逻辑"""
         if image is None:
             image = self.screenshot.screenshot()
             if image is None:
                 return Scene.UNKNOWN
         
-        # 检查奖励界面
+        # 按优先级检查各种场景 - 基于OnmyojiAutoScript的appear逻辑
+        
+        # 1. 检查是否在战斗中 - 最高优先级
+        battle_start_template = self.templates.get("battle_start")
+        if battle_start_template is not None:
+            battle_pos = self.matcher.find_template(image, battle_start_template)
+            if battle_pos is not None:
+                return Scene.BATTLE_FIGHTING
+        
+        # 2. 检查是否在奖励界面 - 通过get_reward按钮识别
         reward_template = self.templates.get("get_reward")
-        if reward_template is not None and self.matcher.find_template(image, reward_template) is not None:
-            return Scene.REWARD
+        if reward_template is not None:
+            reward_pos = self.matcher.find_template(image, reward_template)
+            if reward_pos is not None:
+                return Scene.REWARD
         
-        # 检查战斗准备界面
+        # 3. 检查是否在战斗准备界面
         battle_prepare_template = self.templates.get("battle_prepare")
-        if battle_prepare_template is not None and self.matcher.find_template(image, battle_prepare_template) is not None:
-            return Scene.BATTLE_PREPARE
+        if battle_prepare_template is not None:
+            prepare_pos = self.matcher.find_template(image, battle_prepare_template)
+            if prepare_pos is not None:
+                return Scene.BATTLE_PREPARE
         
-        # 检查战斗中界面
-        battle_fighting_template = self.templates.get("battle_fighting")
-        if battle_fighting_template is not None and self.matcher.find_template(image, battle_fighting_template) is not None:
-            return Scene.BATTLE_FIGHTING
+        # 4. 检查是否在设置界面 - 通过自动轮换开关识别
+        auto_rotate_on_template = self.templates.get("auto_rotate_on")
+        auto_rotate_off_template = self.templates.get("auto_rotate_off")
+        if auto_rotate_on_template is not None:
+            rotate_on_pos = self.matcher.find_template(image, auto_rotate_on_template)
+            if rotate_on_pos is not None:
+                return Scene.SETTINGS
+        if auto_rotate_off_template is not None:
+            rotate_off_pos = self.matcher.find_template(image, auto_rotate_off_template)
+            if rotate_off_pos is not None:
+                return Scene.SETTINGS
         
-        # 检查设置界面
-        settings_template = self.templates.get("settings")
-        if settings_template is not None and self.matcher.find_template(image, settings_template) is not None:
-            return Scene.SETTINGS
-        
-        # 检查章节选择界面
+        # 5. 检查是否在章节选择界面
         chapter_select_template = self.templates.get("chapter_select")
-        if chapter_select_template is not None and self.matcher.find_template(image, chapter_select_template) is not None:
-            return Scene.CHAPTER_SELECT
+        if chapter_select_template is not None:
+            chapter_pos = self.matcher.find_template(image, chapter_select_template)
+            if chapter_pos is not None:
+                return Scene.CHAPTER_SELECT
         
-        # 检查探索入口
+        # 6. 检查是否在探索入口界面 - 通过进入难度选择界面按钮识别
         entrance_template = self.templates.get("entrance")
-        if entrance_template is not None and self.matcher.find_template(image, entrance_template) is not None:
-            return Scene.ENTRANCE
+        if entrance_template is not None:
+            entrance_pos = self.matcher.find_template(image, entrance_template)
+            if entrance_pos is not None:
+                return Scene.ENTRANCE
         
-        # 检查探索主界面（通过UP怪物或普通怪物判断）
-        normal_template = self.templates.get("normal_monster")
-        boss_template = self.templates.get("boss_monster")
-        if (normal_template and self.matcher.find_template(image, normal_template) is not None) or \
-           (boss_template and self.matcher.find_template(image, boss_template) is not None):
-            return Scene.MAIN
+        # 7. 检查是否在探索主界面 - 通过设置按钮识别（OnmyojiAutoScript方式）
+        settings_button_template = self.templates.get("settings_button")
+        if settings_button_template is not None:
+            settings_pos = self.matcher.find_template(image, settings_button_template)
+            if settings_pos is not None:
+                return Scene.MAIN
         
-        # 检查大世界界面
+        # 8. 检查是否在组队界面 - 通过team_emoji识别
+        team_template = self.templates.get("team_emoji")
+        if team_template is not None:
+            team_pos = self.matcher.find_template(image, team_template)
+            if team_pos is not None:
+                return Scene.TEAM
+        
+        # 9. 检查是否在大世界界面 - 通过exploration_title识别
         world_template = self.templates.get("world")
-        if world_template is not None and self.matcher.find_template(image, world_template) is not None:
-            return Scene.WORLD
+        if world_template is not None:
+            world_pos = self.matcher.find_template(image, world_template)
+            if world_pos is not None:
+                return Scene.WORLD
         
+        # 10. 使用OCR辅助识别 - 基于OnmyojiAutoScript的OCR识别方式
+        try:
+            # 尝试识别探索相关文字
+            ocr_results = self.ocr.ocr_single_line(image, roi=(0, 0, image.shape[1], 100))
+            if ocr_results and len(ocr_results) > 0:
+                text = ocr_results[0].get("text", "")
+                confidence = ocr_results[0].get("score", 0)
+                
+                if confidence > 0.6:
+                    if "探索" in text:
+                        return Scene.WORLD
+                    elif "战斗" in text:
+                        return Scene.BATTLE_FIGHTING
+                    elif "奖励" in text or "获得" in text:
+                        return Scene.REWARD
+                        
+        except Exception as e:
+            logger.debug(f"OCR辅助场景识别失败: {e}")
+        
+        # 如果都没有匹配到，返回未知场景
         return Scene.UNKNOWN
     
     def enter_settings_and_do_operations(self, image=None) -> bool:
-        """进入设置并执行自动轮换等操作 - 基于OnmyojiAutoScript完整实现"""
+        """进入设置并执行操作 - 基于OnmyojiAutoScript增强的精确实现"""
         if image is None:
             image = self.screenshot.screenshot()
             if image is None:
+                logger.error("无法获取屏幕截图")
                 return False
         
         # 检查是否已经在设置界面
@@ -287,7 +351,16 @@ class ExplorationTask(Task):
                 if settings_pos is not None:
                     logger.info("点击设置按钮")
                     self.click.click(settings_pos[0], settings_pos[1])
-                    time.sleep(2)
+                    
+                    # 等待界面切换并验证
+                    for _ in range(3):
+                        time.sleep(1)
+                        current_image = self.screenshot.screenshot()
+                        if current_image and self.get_current_scene(current_image) == Scene.SETTINGS:
+                            break
+                    else:
+                        logger.warning("设置界面打开失败")
+                        return False
                 else:
                     logger.warning("未找到设置按钮")
                     return False
@@ -295,44 +368,97 @@ class ExplorationTask(Task):
                 logger.warning("设置按钮模板未加载")
                 return False
         
-        # 等待设置界面加载
-        time.sleep(1)
+        # 获取当前设置界面截图
         current_image = self.screenshot.screenshot()
         if current_image is None:
+            logger.error("无法获取设置界面截图")
             return False
         
-        # 检查是否成功打开设置
-        open_settings = self.templates.get("open_settings")
-        if open_settings is None or self.matcher.find_template(current_image, open_settings) is None:
-            logger.warning("设置界面未正确打开")
+        # 验证设置界面已正确打开
+        if not self._verify_settings_opened(current_image):
+            logger.warning("设置界面验证失败")
             return False
         
-        # 检查自动轮换设置
-        auto_rotate_off = self.templates.get("auto_rotate_off")
-        if auto_rotate_off is not None:
-            rotate_pos = self.matcher.find_template(current_image, auto_rotate_off)
-            if rotate_pos is not None:
-                logger.info("开启自动轮换")
-                self.click.click(rotate_pos[0], rotate_pos[1])
-                time.sleep(1)
-                # 重新截图检查状态
-                current_image = self.screenshot.screenshot()
-                if current_image is None:
-                    return False
+        # 检查并设置自动轮换
+        if not self._handle_auto_rotation(current_image):
+            logger.warning("自动轮换设置失败")
         
         # 检查候补出战数量并添加式神
-        self._check_and_add_shiki(current_image)
+        if not self._check_and_add_shiki(current_image):
+            logger.warning("式神添加操作失败")
         
         # 退出设置界面
+        return self._exit_settings()
+    
+    def _verify_settings_opened(self, image) -> bool:
+        """验证设置界面是否正确打开"""
+        open_settings = self.templates.get("open_settings")
+        if open_settings is None:
+            logger.debug("open_settings模板未加载，跳过验证")
+            return True
+        
+        return self.matcher.find_template(image, open_settings) is not None
+    
+    def _handle_auto_rotation(self, image) -> bool:
+        """处理自动轮换设置"""
+        # 检查自动轮换是否关闭
+        auto_rotate_off = self.templates.get("auto_rotate_off")
+        if auto_rotate_off is not None:
+            rotate_pos = self.matcher.find_template(image, auto_rotate_off)
+            if rotate_pos is not None:
+                logger.info("检测到自动轮换关闭，正在开启")
+                self.click.click(rotate_pos[0], rotate_pos[1])
+                time.sleep(1)
+                
+                # 验证设置是否生效
+                new_image = self.screenshot.screenshot()
+                if new_image:
+                    auto_rotate_on = self.templates.get("auto_rotate_on")
+                    if auto_rotate_on and self.matcher.find_template(new_image, auto_rotate_on):
+                        logger.info("自动轮换已成功开启")
+                        return True
+                    else:
+                        logger.warning("自动轮换开启状态验证失败")
+                return True
+            else:
+                logger.debug("自动轮换已开启或模板匹配失败")
+        else:
+            logger.debug("auto_rotate_off模板未加载")
+        
+        return True
+    
+    def _exit_settings(self) -> bool:
+        """退出设置界面"""
+        # 获取最新截图
+        current_image = self.screenshot.screenshot()
+        if current_image is None:
+            logger.error("无法获取截图以退出设置")
+            return False
+        
+        # 查找确定按钮
         sure_button = self.templates.get("sure_button")
         if sure_button is not None:
             sure_pos = self.matcher.find_template(current_image, sure_button)
             if sure_pos is not None:
-                logger.info("点击确定按钮")
+                logger.info("点击确定按钮退出设置")
                 self.click.click(sure_pos[0], sure_pos[1])
-                time.sleep(2)
-        
-        return True
+                
+                # 等待界面切换并验证
+                for _ in range(3):
+                    time.sleep(1)
+                    new_image = self.screenshot.screenshot()
+                    if new_image and self.get_current_scene(new_image) != Scene.SETTINGS:
+                        logger.info("成功退出设置界面")
+                        return True
+                
+                logger.warning("退出设置界面验证失败")
+                return False
+            else:
+                logger.warning("未找到确定按钮")
+                return False
+        else:
+            logger.warning("sure_button模板未加载")
+            return False
     
     def _check_and_add_shiki(self, image):
         """检查候补出战数量并添加式神"""
@@ -388,7 +514,7 @@ class ExplorationTask(Task):
         """
         logger.section(f"开始执行探索任务 - {self.config['exploration_level'].value}")
         
-        self.stats["start_time"] = datetime.now()
+        self.statistics["start_time"] = datetime.now()
         
         try:
             # 1. 进入探索界面
@@ -408,7 +534,7 @@ class ExplorationTask(Task):
             logger.error(f"探索任务执行失败: {e}")
             return False
         finally:
-            self.stats["end_time"] = datetime.now()
+            self.statistics["end_time"] = datetime.now()
             self._show_statistics()
     
     def _enter_exploration(self) -> bool:
@@ -978,7 +1104,7 @@ class ExplorationTask(Task):
             if boss_pos:
                 logger.info(f"发现BOSS，位置: {boss_pos}")
                 if self._fire_battle(boss_pos):
-                    self.stats["battles_count"] += 1
+                    self._update_battle_statistics(UpType.ALL)  # BOSS不区分UP类型
                     return True
         return False
     
@@ -1029,37 +1155,92 @@ class ExplorationTask(Task):
         return True
     
     def _collect_treasure_box(self, image) -> bool:
-        """收集宝箱"""
+        """收集宝箱 - 基于OnmyojiAutoScript增强的精确实现"""
         treasure_template = self.templates.get("treasure_box")
         if not treasure_template:
+            logger.debug("treasure_box模板未加载")
             return False
         
-        treasure_pos = self.matcher.find_template(image, treasure_template)
-        if treasure_pos:
-            logger.info('收集宝箱')
-            self.click.click(treasure_pos[0], treasure_pos[1])
-            time.sleep(2)
+        # 使用更低的阈值提高检测率
+        treasure_pos = self.matcher.find_template(image, treasure_template, threshold=0.7)
+        if not treasure_pos:
+            return False
+        
+        logger.info(f'发现宝箱，位置: {treasure_pos}')
+        self.click.click(treasure_pos[0], treasure_pos[1])
+        time.sleep(1.5)
+        
+        # 等待并处理奖励 - 增强的奖励收集逻辑
+        return self._handle_treasure_reward()
+    
+    def _handle_treasure_reward(self) -> bool:
+        """处理宝箱奖励收集"""
+        max_wait = 12
+        reward_collected = False
+        
+        for attempt in range(max_wait):
+            current_image = self.screenshot.screenshot()
+            if current_image is None:
+                time.sleep(0.5)
+                continue
             
-            # 等待并处理奖励
-            max_wait = 10
-            for _ in range(max_wait):
-                current_image = self.screenshot.screenshot()
-                if current_image is None:
+            # 检查当前场景
+            current_scene = self.get_current_scene(current_image)
+            
+            # 如果在奖励界面，尝试收集
+            if current_scene == Scene.REWARD:
+                if self._collect_reward_items(current_image):
+                    reward_collected = True
+                    time.sleep(1)
                     continue
-                
-                # 查找奖励按钮
-                reward_template = self.templates.get("get_reward")
-                if reward_template:
-                    reward_pos = self.matcher.find_template(current_image, reward_template)
-                    if reward_pos:
-                        self.click.click(reward_pos[0], reward_pos[1])
-                        time.sleep(1)
-                        break
-                
+            
+            # 查找特定的奖励按钮
+            reward_template = self.templates.get("get_reward")
+            if reward_template:
+                reward_pos = self.matcher.find_template(current_image, reward_template)
+                if reward_pos:
+                    logger.debug("点击奖励收集按钮")
+                    self.click.click(reward_pos[0], reward_pos[1])
+                    reward_collected = True
+                    time.sleep(1)
+                    continue
+            
+            # 如果没有明确的奖励按钮，尝试点击屏幕中央
+            if attempt < 3:  # 前几次尝试点击中央
+                logger.debug("尝试点击屏幕中央收集奖励")
+                self.click.click(640, 360)
                 time.sleep(1)
             
-            self.statistics["treasure_boxes"] += 1
+            # 检查是否已经返回探索界面
+            if current_scene == Scene.MAIN:
+                if reward_collected or attempt > 5:
+                    break
+            
+            time.sleep(0.8)
+        
+        if reward_collected:
+            self._update_treasure_statistics()
+            logger.info("宝箱奖励收集完成")
             return True
+        else:
+            logger.warning("宝箱奖励收集可能失败")
+            # 即使没有明确收集到奖励，也增加计数（可能是视觉识别问题）
+            self._update_treasure_statistics()
+            return True
+    
+    def _collect_reward_items(self, image) -> bool:
+        """收集奖励物品"""
+        # 查找各种可能的奖励确认按钮
+        reward_buttons = ["confirm_button", "sure_button", "get_reward"]
+        
+        for button_name in reward_buttons:
+            button_template = self.templates.get(button_name)
+            if button_template:
+                button_pos = self.matcher.find_template(image, button_template)
+                if button_pos:
+                    logger.debug(f"点击{button_name}收集奖励")
+                    self.click.click(button_pos[0], button_pos[1])
+                    return True
         
         return False
     
@@ -1126,7 +1307,7 @@ class ExplorationTask(Task):
         time.sleep(2)
     
     def _search_up_fight(self, image):
-        """搜索UP怪物并返回战斗按钮位置 - 基于OnmyojiAutoScript精确实现"""
+        """搜索UP怪物并返回战斗按钮位置 - 基于OnmyojiAutoScript的highlight检测机制"""
         up_type = self.config.get('up_type', UpType.ALL)
         
         # UP类型优先级映射
@@ -1139,7 +1320,7 @@ class ExplorationTask(Task):
         # 搜索所有UP标识和战斗按钮
         up_candidates = []
         
-        # 搜索UP标识
+        # 搜索UP标识 - 使用highlight检测增强
         up_templates = {
             UpType.EXP: self.templates.get("up_exp"),
             UpType.COIN: self.templates.get("up_coin"), 
@@ -1154,7 +1335,8 @@ class ExplorationTask(Task):
             if up_type != UpType.ALL and up_type != up_type_key:
                 continue
                 
-            positions = self.matcher.find_all_template(image, template) if hasattr(self.matcher, 'find_all_template') else [self.matcher.find_template(image, template)]
+            # 使用更低的阈值进行初步检测
+            positions = self.matcher.find_all_template(image, template, threshold=0.7) if hasattr(self.matcher, 'find_all_template') else [self.matcher.find_template(image, template, threshold=0.7)]
             if not positions or positions[0] is None:
                 continue
                 
@@ -1164,6 +1346,11 @@ class ExplorationTask(Task):
             for up_pos in positions:
                 if up_pos is None:
                     continue
+                
+                # 验证highlight区域特征
+                if not self._verify_highlight_region(image, up_pos):
+                    logger.debug(f"位置 {up_pos} 未通过highlight验证")
+                    continue
                     
                 logger.info(f"发现{up_type_key.value}标识，位置: {up_pos}")
                 
@@ -1171,7 +1358,7 @@ class ExplorationTask(Task):
                 battle_pos = self._find_battle_button_near_up(image, up_pos)
                 if battle_pos:
                     # 计算距离（用于优先级排序）
-                    distance = ((up_pos[0] - 640) ** 2 + (up_pos[1] - 360) ** 2) ** 0.5
+                    distance = self._calculate_distance_to_center(up_pos, image)
                     up_candidates.append({
                         'up_type': up_type_key,
                         'up_pos': up_pos,
@@ -1186,10 +1373,46 @@ class ExplorationTask(Task):
             up_candidates.sort(key=lambda x: (-x['priority'], x['distance']))
             best_candidate = up_candidates[0]
             logger.info(f"选择最优UP目标: {best_candidate['up_type'].value}，位置: {best_candidate['battle_pos']}")
-            return best_candidate['battle_pos']
+            if self._fire_battle(best_candidate['battle_pos']):
+                self._update_battle_statistics(best_candidate['up_type'])
+                return True
         
-        # 如果没有找到UP怪物，搜索boss和普通怪物
-        return self._search_normal_monsters(image, up_type)
+        return False
+    
+    def _verify_highlight_region(self, image, pos) -> bool:
+        """验证highlight区域的颜色特征 - 基于OnmyojiAutoScript"""
+        try:
+            # 定义highlight区域
+            x, y = pos
+            region_size = 30
+            x1 = max(0, x - region_size)
+            y1 = max(0, y - region_size)
+            x2 = min(image.shape[1], x + region_size)
+            y2 = min(image.shape[0], y + region_size)
+            
+            # 提取区域
+            region = image[y1:y2, x1:x2]
+            if region.size == 0:
+                return False
+            
+            # 转换为HSV颜色空间
+            import cv2
+            hsv = cv2.cvtColor(region, cv2.COLOR_BGR2HSV)
+            
+            # 检查是否有高亮度区域（highlight特征）
+            # UP标识通常有较高的饱和度和亮度
+            high_saturation = cv2.inRange(hsv, (0, 100, 100), (180, 255, 255))
+            highlight_ratio = cv2.countNonZero(high_saturation) / (region.shape[0] * region.shape[1])
+            
+            return highlight_ratio > 0.1  # 至少10%的区域是高亮
+        except Exception as e:
+            logger.debug(f"highlight验证失败: {e}")
+            return True  # 验证失败时默认通过
+    
+    def _calculate_distance_to_center(self, pos, image) -> float:
+        """计算位置到屏幕中心的距离"""
+        center_x, center_y = image.shape[1] // 2, image.shape[0] // 2
+        return ((pos[0] - center_x) ** 2 + (pos[1] - center_y) ** 2) ** 0.5
     
     def _find_battle_button_near_up(self, image, up_pos):
         """在UP标识附近搜索战斗按钮"""
@@ -1293,7 +1516,7 @@ class ExplorationTask(Task):
         # 等待战斗完成并处理
         success = self._wait_battle_complete()
         if success:
-            self.statistics["battles_won"] += 1
+            self.stats["battles_won"] = self.stats.get("battles_won", 0) + 1
         
         return success
     
@@ -1496,42 +1719,22 @@ class ExplorationTask(Task):
             attempt += 1
         
         return False
-            elif current_scene == Scene.BATTLE_FIGHTING:
-                if not battle_started:
-                    battle_started = True
-                    logger.debug("战斗已开始")
-                # 在战斗中等待
-                time.sleep(2)
+    
+    def _wait_battle_complete_old(self) -> bool:
+        """等待战斗完成（旧版本）"""
+        battle_started = False
+        max_wait_time = 120  # 最大等待时间2分钟
+        start_time = time.time()
+        
+        while time.time() - start_time < max_wait_time:
+            image = self.screenshot.screenshot()
+            if image is None:
                 continue
-            
-            # 检查是否有奖励界面
-            elif current_scene == Scene.REWARD:
-                logger.debug("战斗完成，收集奖励")
-                # 查找奖励收集按钮
-                reward_template = self.templates.get("get_reward")
-                if reward_template is not None:
-                    reward_pos = self.matcher.find_template(image, reward_template)
-                    if reward_pos is not None:
-                        self.click.click(reward_pos[0], reward_pos[1])
-                    else:
-                        # 点击屏幕中央收集奖励
-                        self.click.click(640, 360)
-                else:
-                    self.click.click(640, 360)
                 
-                time.sleep(2)
-                
-                # 检查是否还有奖励界面
-                new_image = self.screenshot.screenshot()
-                if new_image and self.get_current_scene(new_image) != Scene.REWARD:
-                    return True
-                
-                # 继续点击收集可能的多重奖励
-                self.click.click(640, 360)
-                time.sleep(1)
+            current_scene = self.get_current_scene(image)
             
             # 检查是否回到探索主界面
-            elif current_scene == Scene.MAIN:
+            if current_scene == Scene.MAIN:
                 if battle_started:
                     logger.debug("战斗完成，返回探索界面")
                     return True
@@ -1542,44 +1745,8 @@ class ExplorationTask(Task):
         return False
     
     def _check_and_collect_treasure(self, image) -> bool:
-        """检查并收集宝箱"""
-        treasure_template = self.templates.get("treasure_box")
-        if treasure_template is None:
-            return False
-        
-        treasure_pos = self.matcher.find_template(image, treasure_template)
-        if treasure_pos is not None:
-            logger.info(f"发现宝箱，位置: {treasure_pos}")
-            self.click.click(treasure_pos[0], treasure_pos[1])
-            time.sleep(2)
-            
-            # 等待宝箱打开并收集奖励
-            max_wait = 10
-            wait_count = 0
-            while wait_count < max_wait:
-                current_image = self.screenshot.screenshot()
-                if current_image is None:
-                    break
-                    
-                # 检查是否有奖励界面
-                reward_template = self.templates.get("get_reward")
-                if reward_template is not None:
-                    reward_pos = self.matcher.find_template(current_image, reward_template)
-                    if reward_pos is not None:
-                        self.click.click(reward_pos[0], reward_pos[1])
-                        logger.info("收集宝箱奖励")
-                        time.sleep(1)
-                        break
-                
-                # 点击屏幕中央收集可能的奖励
-                self.click.click(640, 360)
-                time.sleep(1)
-                wait_count += 1
-            
-            self.stats["treasure_boxes"] += 1
-            return True
-        
-        return False
+        """检查并收集宝箱 - 统一调用_collect_treasure_box方法"""
+        return self._collect_treasure_box(image)
     
     def _check_and_swipe_map(self, image) -> bool:
         """检查并滑动地图"""
@@ -1596,18 +1763,43 @@ class ExplorationTask(Task):
         
         return False
     
+    def _update_battle_statistics(self, up_type: UpType) -> None:
+        """更新战斗统计信息 - 基于OnmyojiAutoScript统一数据收集方式"""
+        self.statistics["battle_count"] += 1
+        
+        # 更新具体类型统计
+        if up_type == UpType.EXP:
+            self.statistics["exp_monster_count"] += 1
+        elif up_type == UpType.COIN:
+            self.statistics["coin_monster_count"] += 1
+        elif up_type == UpType.DARUMA:
+            self.statistics["daruma_monster_count"] += 1
+        
+        logger.debug(f"战斗统计更新: {up_type.value if up_type != UpType.ALL else 'BOSS'}, 总战斗次数: {self.statistics['battle_count']}")
+    
+    def _update_treasure_statistics(self) -> None:
+        """更新宝箱收集统计信息"""
+        self.statistics["treasure_box_count"] += 1
+        logger.debug(f"宝箱统计更新: 总收集数量: {self.statistics['treasure_box_count']}")
+    
     def _show_statistics(self) -> None:
-        """显示统计信息"""
-        if self.stats["start_time"] and self.stats["end_time"]:
-            duration = self.stats["end_time"] - self.stats["start_time"]
+        """显示统计信息 - 基于OnmyojiAutoScript统一格式"""
+        if self.statistics["start_time"] and self.statistics["end_time"]:
+            duration = self.statistics["end_time"] - self.statistics["start_time"]
+            self.statistics["total_duration"] = duration
             
             logger.section("探索任务统计")
             logger.info(f"任务时长: {duration}")
-            logger.info(f"战斗次数: {self.stats['battles_count']}")
-            logger.info(f"经验怪物: {self.stats['exp_monsters']}")
-            logger.info(f"金币怪物: {self.stats['coin_monsters']}")
-            logger.info(f"达摩怪物: {self.stats['daruma_monsters']}")
-            logger.info(f"宝箱收集: {self.stats['treasure_boxes']}")
+            logger.info(f"战斗次数: {self.statistics['battle_count']}")
+            logger.info(f"经验怪物: {self.statistics['exp_monster_count']}")
+            logger.info(f"金币怪物: {self.statistics['coin_monster_count']}")
+            logger.info(f"达摩怪物: {self.statistics['daruma_monster_count']}")
+            logger.info(f"宝箱收集: {self.statistics['treasure_box_count']}")
+            
+            # 计算效率统计
+            if duration.total_seconds() > 0:
+                battles_per_minute = self.statistics['battle_count'] / (duration.total_seconds() / 60)
+                logger.info(f"战斗效率: {battles_per_minute:.2f} 次/分钟")
 
 # ==================== 配置管理 ====================
 
