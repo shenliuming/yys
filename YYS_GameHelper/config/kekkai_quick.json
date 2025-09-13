@@ -1,0 +1,35 @@
+{
+  "name": "结界突破-快速",
+  "enabled": true,
+  "priority": "normal",
+  "timeout": 3600,
+  "retry_count": 3,
+  "retry_interval": 1.0,
+  "mode": "personal",
+  "limit_time_minutes": 99999,
+  "limit_count": 5,
+  "skip_failed_areas": true,
+  "random_delay": false,
+  "enable_lock_team": false,
+  "personal_areas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "guild_admin_mode": false,
+  "cleanup_triggers": {
+    "time_based": {
+      "enabled": true,
+      "interval_minutes": 30
+    },
+    "count_based": {
+      "enabled": true,
+      "max_scrolls": 50
+    }
+  }
+}

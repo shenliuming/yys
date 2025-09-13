@@ -1,0 +1,24 @@
+{
+  "name": "探索-单人",
+  "enabled": true,
+  "priority": "normal",
+  "timeout": 3600,
+  "retry_count": 3,
+  "retry_interval": 1.0,
+  "mode": "single",
+  "chapter": 28,
+  "difficulty": "hard",
+  "team_size": 1,
+  "auto_invite": false,
+  "max_duration_minutes": 2,
+  "cleanup_triggers": {
+    "time_based": {
+      "enabled": true,
+      "interval_minutes": 30
+    },
+    "inventory_full": {
+      "enabled": true,
+      "check_interval_minutes": 5
+    }
+  }
+}

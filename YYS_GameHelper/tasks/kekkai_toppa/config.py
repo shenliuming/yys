@@ -15,11 +15,29 @@ class ToppaMode(str, Enum):
     GUILD = "guild"       # 阴阳寮突破
 
 
+class RaidConfig(BaseModel):
+    """结界突破配置 - 基于OnmyojiAutoScript的RaidConfig"""
+    # 限制时间（分钟）
+    limit_time_minutes: int = Field(default=30, description='时间限制（分钟）')
+    # 限制次数
+    limit_count: int = Field(default=50, description='次数限制')
+    # 攻破完成后指定下次运行时间（小时）
+    next_ryoutoppa_hour: int = Field(default=7, description='下次寮突破时间（小时）')
+    # 是否跳过难度较高的结界，失败后不再攻打该结界
+    skip_difficult: bool = Field(default=True, description='跳过困难区域')
+    # 寮管理开启寮突破
+    ryou_access: bool = Field(default=False, description='寮管理员模式')
+    # 正式进攻会设定 2s - 10s 的随机延迟
+    random_delay: bool = Field(default=False, description='随机延迟')
+    # 锁定队伍
+    enable_lock_team: bool = Field(default=False, description='锁定队伍')
+
+
 class KekkaiToppaConfig:
-    """结界突破配置类"""
+    """结界突破配置类 - 基于OnmyojiAutoScript的结构"""
     
     def __init__(self):
-        # 默认配置
+        # 默认配置 - 基于OnmyojiAutoScript的配置结构
         self.default_config = {
             # 基础设置
             "task_name": "结界突破",
@@ -28,23 +46,22 @@ class KekkaiToppaConfig:
             # 突破模式
             "mode": ToppaMode.PERSONAL,  # 突破模式：personal(个人突破) 或 guild(阴阳寮突破)
             
-            # 时间和次数限制
-            "limit_time_minutes": 99999,  # 时间限制（分钟）
-            "limit_count": 99999,  # 次数限制
+            # 时间和次数限制 - 对应OnmyojiAutoScript的RaidConfig
+            "limit_time_minutes": 30,  # 时间限制（分钟）
+            "limit_count": 50,  # 次数限制
             
             # 个人突破配置
             "personal_areas": [1, 2, 3, 4, 5, 6, 7, 8],  # 个人突破区域列表
             "skip_failed_areas": True,  # 跳过失败的区域
             
-            # 阴阳寮突破配置
-            "guild_admin_mode": False,  # 寮管理员模式，可以开启寮突破
+            # 阴阳寮突破配置 - 对应OnmyojiAutoScript的配置
+            "ryou_access": False,  # 寮管理员模式，可以开启寮突破
             "auto_select_guild": True,  # 自动选择第一个寮
-            "lock_team": False,  # 锁定队伍
-            "next_guild_toppa_hour": 7,  # 下次寮突破时间（小时）
+            "next_ryoutoppa_hour": 7,  # 下次寮突破时间（小时）
             
-            # 战斗设置
+            # 战斗设置 - 对应OnmyojiAutoScript的配置
             "skip_difficult": True,  # 跳过困难区域（失败后不再攻打）
-            "random_delay": True,  # 随机延迟（2-10秒）
+            "random_delay": False,  # 随机延迟（2-10秒）
             "enable_lock_team": False,  # 锁定队伍
             
             # 御魂切换配置
