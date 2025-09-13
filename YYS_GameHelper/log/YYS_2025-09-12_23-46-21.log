@@ -1,0 +1,4 @@
+2025-09-12 23:46:21.972 | INFO | ==================== 日志系统初始化 ====================
+2025-09-12 23:46:22.172 | INFO | 加载模板: start_button -> templates\start_button.png
+2025-09-12 23:46:22.172 | INFO | 加载模板: end_button -> templates\end_button.png
+2025-09-12 23:46:22.172 | INFO | 加载模板: battle_icon -> templates\battle\battle_icon.png

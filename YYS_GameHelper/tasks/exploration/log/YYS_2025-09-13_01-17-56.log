@@ -1,0 +1,73 @@
+2025-09-13 01:17:56.983 | INFO | ==================== 日志系统初始化 ====================
+2025-09-13 01:17:57.210 | INFO | 模板目录: templates\exploration
+2025-09-13 01:17:57.210 | INFO | 模板目录存在: False
+2025-09-13 01:17:57.211 | DEBUG | 检查模板文件: templates\exploration\res_e_exploration_open.png
+2025-09-13 01:17:57.211 | ERROR | 模板文件不存在: templates\exploration\res_e_exploration_open.png
+2025-09-13 01:17:57.220 | DEBUG | 检查模板文件: templates\exploration\res_exploration_title.png
+2025-09-13 01:17:57.220 | ERROR | 模板文件不存在: templates\exploration\res_exploration_title.png
+2025-09-13 01:17:57.220 | DEBUG | 检查模板文件: templates\exploration\res_e_settings_button.png
+2025-09-13 01:17:57.221 | ERROR | 模板文件不存在: templates\exploration\res_e_settings_button.png
+2025-09-13 01:17:57.221 | DEBUG | 检查模板文件: templates\exploration\res_e_exploration_click.png
+2025-09-13 01:17:57.221 | ERROR | 模板文件不存在: templates\exploration\res_e_exploration_click.png
+2025-09-13 01:17:57.221 | DEBUG | 检查模板文件: templates\exploration\res_e_open_settings.png
+2025-09-13 01:17:57.221 | ERROR | 模板文件不存在: templates\exploration\res_e_open_settings.png
+2025-09-13 01:17:57.221 | DEBUG | 检查模板文件: templates\exploration\res_normal_battle_button.png
+2025-09-13 01:17:57.222 | ERROR | 模板文件不存在: templates\exploration\res_normal_battle_button.png
+2025-09-13 01:17:57.222 | DEBUG | 检查模板文件: templates\exploration\res_boss_battle_button.png
+2025-09-13 01:17:57.222 | ERROR | 模板文件不存在: templates\exploration\res_boss_battle_button.png
+2025-09-13 01:17:57.222 | DEBUG | 检查模板文件: templates\exploration\res_battle_start.png
+2025-09-13 01:17:57.222 | ERROR | 模板文件不存在: templates\exploration\res_battle_start.png
+2025-09-13 01:17:57.222 | DEBUG | 检查模板文件: templates\exploration\res_treasure_box_click.png
+2025-09-13 01:17:57.222 | ERROR | 模板文件不存在: templates\exploration\res_treasure_box_click.png
+2025-09-13 01:17:57.222 | DEBUG | 检查模板文件: templates\exploration\res_get_reward.png
+2025-09-13 01:17:57.222 | ERROR | 模板文件不存在: templates\exploration\res_get_reward.png
+2025-09-13 01:17:57.223 | DEBUG | 检查模板文件: templates\exploration\res_battle_reward.png
+2025-09-13 01:17:57.223 | ERROR | 模板文件不存在: templates\exploration\res_battle_reward.png
+2025-09-13 01:17:57.223 | DEBUG | 检查模板文件: templates\exploration\res_e_auto_rotate_on.png
+2025-09-13 01:17:57.223 | ERROR | 模板文件不存在: templates\exploration\res_e_auto_rotate_on.png
+2025-09-13 01:17:57.223 | DEBUG | 检查模板文件: templates\exploration\res_e_auto_rotate_off.png
+2025-09-13 01:17:57.223 | ERROR | 模板文件不存在: templates\exploration\res_e_auto_rotate_off.png
+2025-09-13 01:17:57.223 | DEBUG | 检查模板文件: templates\exploration\res_e_enter_choose_rarity.png
+2025-09-13 01:17:57.223 | ERROR | 模板文件不存在: templates\exploration\res_e_enter_choose_rarity.png
+2025-09-13 01:17:57.223 | DEBUG | 检查模板文件: templates\exploration\res_e_n_rarity.png
+2025-09-13 01:17:57.223 | ERROR | 模板文件不存在: templates\exploration\res_e_n_rarity.png
+2025-09-13 01:17:57.223 | DEBUG | 检查模板文件: templates\exploration\res_e_s_rarity.png
+2025-09-13 01:17:57.223 | ERROR | 模板文件不存在: templates\exploration\res_e_s_rarity.png
+2025-09-13 01:17:57.224 | DEBUG | 检查模板文件: templates\exploration\res_e_ratate_exsit.png
+2025-09-13 01:17:57.224 | ERROR | 模板文件不存在: templates\exploration\res_e_ratate_exsit.png
+2025-09-13 01:17:57.224 | DEBUG | 检查模板文件: templates\exploration\res_e_sure_button.png
+2025-09-13 01:17:57.224 | ERROR | 模板文件不存在: templates\exploration\res_e_sure_button.png
+2025-09-13 01:17:57.224 | DEBUG | 检查模板文件: templates\exploration\res_team_emoji.png
+2025-09-13 01:17:57.224 | ERROR | 模板文件不存在: templates\exploration\res_team_emoji.png
+2025-09-13 01:17:57.224 | DEBUG | 检查模板文件: templates\exploration\res_exp_create_team.png
+2025-09-13 01:17:57.224 | ERROR | 模板文件不存在: templates\exploration\res_exp_create_team.png
+2025-09-13 01:17:57.224 | DEBUG | 检查模板文件: templates\exploration\res_exp_create_ensure.png
+2025-09-13 01:17:57.224 | ERROR | 模板文件不存在: templates\exploration\res_exp_create_ensure.png
+2025-09-13 01:17:57.224 | DEBUG | 检查模板文件: templates\exploration\res_swipe_end.png
+2025-09-13 01:17:57.224 | ERROR | 模板文件不存在: templates\exploration\res_swipe_end.png
+2025-09-13 01:17:57.224 | DEBUG | 检查模板文件: templates\exploration\res_e_exit_confirm.png
+2025-09-13 01:17:57.224 | ERROR | 模板文件不存在: templates\exploration\res_e_exit_confirm.png
+2025-09-13 01:17:57.225 | DEBUG | 检查模板文件: templates\exploration\res_red_close.png
+2025-09-13 01:17:57.225 | ERROR | 模板文件不存在: templates\exploration\res_red_close.png
+2025-09-13 01:17:57.225 | INFO | 任务配置:
+2025-09-13 01:17:57.225 | INFO | 探索章节: 第八章
+2025-09-13 01:17:57.225 | INFO | UP类型: 经验UP
+2025-09-13 01:17:57.225 | INFO | 战斗次数: 1111
+2025-09-13 01:17:57.225 | INFO | 时间限制: 1:51:00
+2025-09-13 01:17:57.225 | INFO | 启动探索任务
+2025-09-13 01:17:57.225 | INFO | 
+2025-09-13 01:17:57.225 | INFO | >>> 开始任务: 探索任务 <<<
+2025-09-13 01:17:57.225 | INFO | 
+2025-09-13 01:17:57.225 | INFO | >>> 开始执行探索任务 - 第八章 <<<
+2025-09-13 01:17:57.225 | INFO | 正在进入探索界面...
+2025-09-13 01:17:57.596 | WARNING | 未找到探索入口，可能已在探索界面
+2025-09-13 01:17:57.596 | INFO | 正在选择章节: 第八章
+2025-09-13 01:18:01.370 | INFO | 
+2025-09-13 01:18:01.370 | INFO | >>> 探索任务统计 <<<
+2025-09-13 01:18:01.370 | INFO | 任务时长: 0:00:04.144535
+2025-09-13 01:18:01.370 | INFO | 战斗次数: 0
+2025-09-13 01:18:01.370 | INFO | 经验怪物: 0
+2025-09-13 01:18:01.370 | INFO | 金币怪物: 0
+2025-09-13 01:18:01.370 | INFO | 达摩怪物: 0
+2025-09-13 01:18:01.370 | INFO | 宝箱收集: 0
+2025-09-13 01:18:01.371 | ERROR | 探索任务失败

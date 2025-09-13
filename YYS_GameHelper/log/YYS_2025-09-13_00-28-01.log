@@ -1,0 +1,36 @@
+2025-09-13 00:28:01.180 | INFO | ==================== 日志系统初始化 ====================
+2025-09-13 00:28:01.201 | INFO | 配置文件不存在，使用默认配置
+2025-09-13 00:28:12.243 | INFO | 配置已保存到 exploration_config.json
+2025-09-13 00:28:12.466 | ERROR | 模板图片加载失败: templates\exploration\entrance.png
+2025-09-13 00:28:12.466 | ERROR | 模板图片加载失败: templates\exploration\main.png
+2025-09-13 00:28:12.476 | ERROR | 模板图片加载失败: templates\exploration\settings_button.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\normal_monster.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\boss_monster.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\up_exp.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\up_coin.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\up_daruma.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\treasure_box.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\get_reward.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\auto_rotate_on.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\auto_rotate_off.png
+2025-09-13 00:28:12.477 | ERROR | 模板图片加载失败: templates\exploration\swipe_end.png
+2025-09-13 00:28:12.478 | ERROR | 模板图片加载失败: templates\exploration\exit_confirm.png
+2025-09-13 00:28:17.386 | INFO | 启动探索任务
+2025-09-13 00:28:17.386 | INFO | 
+2025-09-13 00:28:17.386 | INFO | >>> 开始任务: 探索任务 <<<
+2025-09-13 00:28:17.386 | INFO | 
+2025-09-13 00:28:17.386 | INFO | >>> 开始执行探索任务 - 第一章 <<<
+2025-09-13 00:28:17.386 | INFO | 正在进入探索界面...
+2025-09-13 00:28:17.746 | WARNING | 未找到探索入口，可能已在探索界面
+2025-09-13 00:28:17.746 | INFO | 正在选择章节: 第一章
+2025-09-13 00:28:18.746 | INFO | 章节选择完成
+2025-09-13 00:28:18.746 | INFO | 开始探索循环
+2025-09-13 00:28:20.388 | INFO | 
+2025-09-13 00:28:20.388 | INFO | >>> 探索任务统计 <<<
+2025-09-13 00:28:20.388 | INFO | 任务时长: 0:00:03.001113
+2025-09-13 00:28:20.388 | INFO | 战斗次数: 0
+2025-09-13 00:28:20.388 | INFO | 经验怪物: 0
+2025-09-13 00:28:20.388 | INFO | 金币怪物: 0
+2025-09-13 00:28:20.388 | INFO | 达摩怪物: 0
+2025-09-13 00:28:20.388 | INFO | 宝箱收集: 0
+2025-09-13 00:28:20.389 | ERROR | 探索任务失败

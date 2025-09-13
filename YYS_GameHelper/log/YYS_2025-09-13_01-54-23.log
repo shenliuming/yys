@@ -1,0 +1,121 @@
+2025-09-13 01:54:23.269 | INFO | ==================== 日志系统初始化 ====================
+2025-09-13 01:54:30.338 | INFO | 配置已保存到 exploration_config.json
+2025-09-13 01:54:30.568 | INFO | 模板目录: templates\exploration\res
+2025-09-13 01:54:30.568 | INFO | 模板目录存在: True
+2025-09-13 01:54:30.568 | DEBUG | 检查模板文件: templates\exploration\res\res_e_exploration_open.png
+2025-09-13 01:54:30.568 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_exploration_open.png
+2025-09-13 01:54:30.578 | INFO | 成功加载模板: entrance
+2025-09-13 01:54:30.578 | DEBUG | 检查模板文件: templates\exploration\res\res_exploration_title.png
+2025-09-13 01:54:30.578 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_exploration_title.png
+2025-09-13 01:54:30.579 | INFO | 成功加载模板: main
+2025-09-13 01:54:30.579 | DEBUG | 检查模板文件: templates\exploration\res\res_e_settings_button.png
+2025-09-13 01:54:30.579 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_settings_button.png
+2025-09-13 01:54:30.579 | INFO | 成功加载模板: settings_button
+2025-09-13 01:54:30.579 | DEBUG | 检查模板文件: templates\exploration\res\res_e_exploration_click.png
+2025-09-13 01:54:30.579 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_exploration_click.png
+2025-09-13 01:54:30.579 | INFO | 成功加载模板: exploration_click
+2025-09-13 01:54:30.579 | DEBUG | 检查模板文件: templates\exploration\res\res_e_open_settings.png
+2025-09-13 01:54:30.579 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_open_settings.png
+2025-09-13 01:54:30.580 | INFO | 成功加载模板: open_settings
+2025-09-13 01:54:30.580 | DEBUG | 检查模板文件: templates\exploration\res\res_normal_battle_button.png
+2025-09-13 01:54:30.580 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_normal_battle_button.png
+2025-09-13 01:54:30.580 | INFO | 成功加载模板: normal_monster
+2025-09-13 01:54:30.580 | DEBUG | 检查模板文件: templates\exploration\res\res_boss_battle_button.png
+2025-09-13 01:54:30.580 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_boss_battle_button.png
+2025-09-13 01:54:30.581 | INFO | 成功加载模板: boss_monster
+2025-09-13 01:54:30.581 | DEBUG | 检查模板文件: templates\exploration\res\res_battle_start.png
+2025-09-13 01:54:30.581 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_battle_start.png
+2025-09-13 01:54:30.581 | INFO | 成功加载模板: battle_start
+2025-09-13 01:54:30.581 | DEBUG | 检查模板文件: templates\exploration\res\res_treasure_box_click.png
+2025-09-13 01:54:30.582 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_treasure_box_click.png
+2025-09-13 01:54:30.582 | INFO | 成功加载模板: treasure_box
+2025-09-13 01:54:30.582 | DEBUG | 检查模板文件: templates\exploration\res\res_get_reward.png
+2025-09-13 01:54:30.582 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_get_reward.png
+2025-09-13 01:54:30.582 | INFO | 成功加载模板: get_reward
+2025-09-13 01:54:30.583 | DEBUG | 检查模板文件: templates\exploration\res\res_battle_reward.png
+2025-09-13 01:54:30.583 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_battle_reward.png
+2025-09-13 01:54:30.583 | INFO | 成功加载模板: battle_reward
+2025-09-13 01:54:30.583 | DEBUG | 检查模板文件: templates\exploration\res\res_e_auto_rotate_on.png
+2025-09-13 01:54:30.583 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_auto_rotate_on.png
+2025-09-13 01:54:30.583 | INFO | 成功加载模板: auto_rotate_on
+2025-09-13 01:54:30.583 | DEBUG | 检查模板文件: templates\exploration\res\res_e_auto_rotate_off.png
+2025-09-13 01:54:30.583 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_auto_rotate_off.png
+2025-09-13 01:54:30.584 | INFO | 成功加载模板: auto_rotate_off
+2025-09-13 01:54:30.584 | DEBUG | 检查模板文件: templates\exploration\res\res_e_enter_choose_rarity.png
+2025-09-13 01:54:30.584 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_enter_choose_rarity.png
+2025-09-13 01:54:30.584 | INFO | 成功加载模板: enter_choose_rarity
+2025-09-13 01:54:30.584 | DEBUG | 检查模板文件: templates\exploration\res\res_e_n_rarity.png
+2025-09-13 01:54:30.584 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_n_rarity.png
+2025-09-13 01:54:30.584 | INFO | 成功加载模板: n_rarity
+2025-09-13 01:54:30.585 | DEBUG | 检查模板文件: templates\exploration\res\res_e_s_rarity.png
+2025-09-13 01:54:30.585 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_s_rarity.png
+2025-09-13 01:54:30.585 | INFO | 成功加载模板: s_rarity
+2025-09-13 01:54:30.585 | DEBUG | 检查模板文件: templates\exploration\res\res_e_ratate_exsit.png
+2025-09-13 01:54:30.585 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_ratate_exsit.png
+2025-09-13 01:54:30.586 | INFO | 成功加载模板: rotate_exist
+2025-09-13 01:54:30.586 | DEBUG | 检查模板文件: templates\exploration\res\res_e_sure_button.png
+2025-09-13 01:54:30.586 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_sure_button.png
+2025-09-13 01:54:30.586 | INFO | 成功加载模板: sure_button
+2025-09-13 01:54:30.586 | DEBUG | 检查模板文件: templates\exploration\res\res_team_emoji.png
+2025-09-13 01:54:30.586 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_team_emoji.png
+2025-09-13 01:54:30.586 | INFO | 成功加载模板: team_emoji
+2025-09-13 01:54:30.586 | DEBUG | 检查模板文件: templates\exploration\res\res_exp_create_team.png
+2025-09-13 01:54:30.587 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_exp_create_team.png
+2025-09-13 01:54:30.587 | INFO | 成功加载模板: create_team
+2025-09-13 01:54:30.587 | DEBUG | 检查模板文件: templates\exploration\res\res_exp_create_ensure.png
+2025-09-13 01:54:30.587 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_exp_create_ensure.png
+2025-09-13 01:54:30.587 | INFO | 成功加载模板: create_ensure
+2025-09-13 01:54:30.587 | DEBUG | 检查模板文件: templates\exploration\res\res_swipe_end.png
+2025-09-13 01:54:30.587 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_swipe_end.png
+2025-09-13 01:54:30.588 | INFO | 成功加载模板: swipe_end
+2025-09-13 01:54:30.588 | DEBUG | 检查模板文件: templates\exploration\res\res_e_exit_confirm.png
+2025-09-13 01:54:30.588 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_e_exit_confirm.png
+2025-09-13 01:54:30.589 | INFO | 成功加载模板: exit_confirm
+2025-09-13 01:54:30.589 | DEBUG | 检查模板文件: templates\exploration\res\res_red_close.png
+2025-09-13 01:54:30.589 | DEBUG | 文件存在，尝试加载: templates\exploration\res\res_red_close.png
+2025-09-13 01:54:30.589 | INFO | 成功加载模板: red_close
+2025-09-13 01:54:31.985 | INFO | 启动探索任务
+2025-09-13 01:54:31.985 | INFO | 
+2025-09-13 01:54:31.986 | INFO | >>> 开始任务: 探索任务 <<<
+2025-09-13 01:54:31.986 | INFO | 
+2025-09-13 01:54:31.986 | INFO | >>> 开始执行探索任务 - 第八章 <<<
+2025-09-13 01:54:31.986 | INFO | 检查当前界面状态...
+2025-09-13 01:54:32.390 | INFO | 第1次尝试：找到探索入口，点击进入
+2025-09-13 01:54:32.390 | INFO | 点击坐标: (1077, 248)
+2025-09-13 01:54:33.405 | DEBUG | 仍能看到探索入口，继续等待
+2025-09-13 01:54:34.320 | DEBUG | 仍能看到探索入口，继续等待
+2025-09-13 01:54:35.239 | DEBUG | 仍能看到探索入口，继续等待
+2025-09-13 01:54:36.140 | DEBUG | 仍能看到探索入口，继续等待
+2025-09-13 01:54:37.041 | DEBUG | 仍能看到探索入口，继续等待
+2025-09-13 01:54:37.929 | DEBUG | 仍能看到探索入口，继续等待
+2025-09-13 01:54:37.929 | WARNING | 第1次点击后未能进入探索界面
+2025-09-13 01:54:38.427 | INFO | 已在探索界面
+2025-09-13 01:54:38.427 | INFO | 正在选择章节: 第八章
+2025-09-13 01:54:38.428 | INFO | 开始寻找目标章节
+2025-09-13 01:54:39.174 | INFO | 当前识别到的章节: ['×3/次']
+2025-09-13 01:54:39.236 | INFO | 滑动寻找章节，第1次
+2025-09-13 01:54:41.551 | INFO | 当前识别到的章节: ['×3/次']
+2025-09-13 01:54:41.604 | INFO | 滑动寻找章节，第2次
+2025-09-13 01:54:43.893 | INFO | 当前识别到的章节: ['×3/次']
+2025-09-13 01:54:43.958 | INFO | 滑动寻找章节，第3次
+2025-09-13 01:54:46.301 | INFO | 当前识别到的章节: ['×3/次']
+2025-09-13 01:54:46.372 | INFO | 滑动寻找章节，第4次
+2025-09-13 01:54:48.683 | INFO | 当前识别到的章节: ['×3/次']
+2025-09-13 01:54:48.757 | INFO | 滑动寻找章节，第5次
+2025-09-13 01:54:51.084 | INFO | 当前识别到的章节: ['×3/次']
+2025-09-13 01:54:51.166 | INFO | 滑动寻找章节，第6次
+2025-09-13 01:54:53.510 | INFO | 当前识别到的章节: ['×3/次']
+2025-09-13 01:54:53.579 | INFO | 滑动寻找章节，第7次
+2025-09-13 01:54:55.892 | INFO | 当前识别到的章节: ['×3/次']
+2025-09-13 01:54:55.962 | INFO | 滑动寻找章节，第8次
+2025-09-13 01:54:58.253 | INFO | 当前识别到的章节: ['×3/次']
+2025-09-13 01:54:58.315 | INFO | 滑动寻找章节，第9次
+2025-09-13 01:54:59.201 | INFO | 
+2025-09-13 01:54:59.201 | INFO | >>> 探索任务统计 <<<
+2025-09-13 01:54:59.201 | INFO | 任务时长: 0:00:27.214725
+2025-09-13 01:54:59.202 | INFO | 战斗次数: 0
+2025-09-13 01:54:59.202 | INFO | 经验怪物: 0
+2025-09-13 01:54:59.202 | INFO | 金币怪物: 0
+2025-09-13 01:54:59.202 | INFO | 达摩怪物: 0
+2025-09-13 01:54:59.202 | INFO | 宝箱收集: 0
+2025-09-13 01:54:59.216 | ERROR | 探索任务失败

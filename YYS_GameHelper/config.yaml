@@ -1,0 +1,29 @@
+device:
+  address: 127.0.0.1:5555
+  control_method: adb
+  name: default
+  screenshot_method: adb
+  type: android
+game:
+  activity: com.netease.onmyoji.MainActivity
+  package: com.netease.onmyoji
+log:
+  dir: ./log
+  level: INFO
+ocr:
+  engine: paddle
+  lang: ch
+  score: 0.6
+operation:
+  click_delay:
+  - 0.3
+  - 0.5
+  random_offset: 10
+  swipe_delay:
+  - 0.5
+  - 0.8
+ui:
+  resolution:
+  - 1280
+  - 720
+  scale: 1.0

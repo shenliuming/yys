@@ -1,0 +1,146 @@
+[
+  {
+    "itemName": "entrance",
+    "imageName": "entrance.png",
+    "roiFront": "1077,248,37,80",
+    "roiBack": "1072,242,47,92",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "进入难度选择界面"
+  },
+  {
+    "itemName": "exploration_click",
+    "imageName": "exploration_click.png",
+    "roiFront": "898,518,96,42",
+    "roiBack": "898,518,96,42",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "探索按钮"
+  },
+  {
+    "itemName": "normal_battle_button",
+    "imageName": "normal_battle_button.png",
+    "roiFront": "636,263,42,39",
+    "roiBack": "0,0,1279,719",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "普通怪战斗按钮"
+  },
+  {
+    "itemName": "boss_battle_button",
+    "imageName": "boss_battle_button.png",
+    "roiFront": "683,256,38,34",
+    "roiBack": "0,0,1276,719",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "boss战斗按钮"
+  },
+  {
+    "itemName": "up_exp",
+    "imageName": "up_exp.png",
+    "roiFront": "471,518,74,71",
+    "roiBack": "1,225,1278,410",
+    "method": "Sift Flann",
+    "threshold": 0.8,
+    "description": "经验UP标识"
+  },
+  {
+    "itemName": "up_coin",
+    "imageName": "up_coin.png",
+    "roiFront": "330,529,74,74",
+    "roiBack": "1,317,1278,316",
+    "method": "Sift Flann",
+    "threshold": 0.8,
+    "description": "金币UP标识"
+  },
+  {
+    "itemName": "up_daruma",
+    "imageName": "up_daruma.png",
+    "roiFront": "1146,510,80,80",
+    "roiBack": "1,265,1278,369",
+    "method": "Sift Flann",
+    "threshold": 0.8,
+    "description": "达摩UP标识"
+  },
+  {
+    "itemName": "treasure_box",
+    "imageName": "treasure_box.png",
+    "roiFront": "33,476,70,49",
+    "roiBack": "2,130,135,406",
+    "method": "Template matching",
+    "threshold": 0.7,
+    "description": "宝箱"
+  },
+  {
+    "itemName": "battle_reward",
+    "imageName": "battle_reward.png",
+    "roiFront": "647,395,31,21",
+    "roiBack": "1,1,1278,718",
+    "method": "Template matching",
+    "threshold": 0.9,
+    "description": "战后奖励"
+  },
+  {
+    "itemName": "auto_rotate_on",
+    "imageName": "auto_rotate_on.png",
+    "roiFront": "104,649,153,44",
+    "roiBack": "104,649,153,44",
+    "method": "Template matching",
+    "threshold": 0.9,
+    "description": "自动轮换开启"
+  },
+  {
+    "itemName": "auto_rotate_off",
+    "imageName": "auto_rotate_off.png",
+    "roiFront": "108,650,150,46",
+    "roiBack": "108,650,150,46",
+    "method": "Template matching",
+    "threshold": 0.85,
+    "description": "自动轮换关闭"
+  },
+  {
+    "itemName": "settings_button",
+    "imageName": "settings_button.png",
+    "roiFront": "37,692,53,26",
+    "roiBack": "37,692,53,26",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "设置按钮"
+  },
+  {
+    "itemName": "open_settings",
+    "imageName": "open_settings.png",
+    "roiFront": "466,110,170,50",
+    "roiBack": "466,110,170,50",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "成功打开设置"
+  },
+  {
+    "itemName": "n_rarity",
+    "imageName": "n_rarity.png",
+    "roiFront": "42,625,46,49",
+    "roiBack": "42,625,46,49",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "候补N卡"
+  },
+  {
+    "itemName": "s_rarity",
+    "imageName": "s_rarity.png",
+    "roiFront": "33,620,63,59",
+    "roiBack": "33,620,63,59",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "候补素材"
+  },
+  {
+    "itemName": "sure_button",
+    "imageName": "sure_button.png",
+    "roiFront": "1131,425,43,37",
+    "roiBack": "1077,367,165,152",
+    "method": "Template matching",
+    "threshold": 0.65,
+    "description": "确定按钮"
+  }
+]

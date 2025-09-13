@@ -1,0 +1,67 @@
+2025-09-13 00:53:50.248 | INFO | ==================== 日志系统初始化 ====================
+2025-09-13 00:53:50.487 | INFO | 模板目录: templates\exploration
+2025-09-13 00:53:50.487 | INFO | 模板目录存在: True
+2025-09-13 00:53:50.487 | DEBUG | 检查模板文件: templates\exploration\res_e_exploration_open.png
+2025-09-13 00:53:50.487 | DEBUG | 文件存在，尝试加载: templates\exploration\res_e_exploration_open.png
+2025-09-13 00:53:50.488 | INFO | 成功加载模板: entrance
+2025-09-13 00:53:50.488 | DEBUG | 检查模板文件: templates\exploration\res_exploration_title.png
+2025-09-13 00:53:50.488 | DEBUG | 文件存在，尝试加载: templates\exploration\res_exploration_title.png
+2025-09-13 00:53:50.488 | INFO | 成功加载模板: main
+2025-09-13 00:53:50.488 | DEBUG | 检查模板文件: templates\exploration\res_e_settings_button.png
+2025-09-13 00:53:50.488 | DEBUG | 文件存在，尝试加载: templates\exploration\res_e_settings_button.png
+2025-09-13 00:53:50.488 | INFO | 成功加载模板: settings_button
+2025-09-13 00:53:50.488 | DEBUG | 检查模板文件: templates\exploration\res_normal_battle_button.png
+2025-09-13 00:53:50.488 | DEBUG | 文件存在，尝试加载: templates\exploration\res_normal_battle_button.png
+2025-09-13 00:53:50.488 | INFO | 成功加载模板: normal_monster
+2025-09-13 00:53:50.489 | DEBUG | 检查模板文件: templates\exploration\res_boss_battle_button.png
+2025-09-13 00:53:50.489 | DEBUG | 文件存在，尝试加载: templates\exploration\res_boss_battle_button.png
+2025-09-13 00:53:50.489 | INFO | 成功加载模板: boss_monster
+2025-09-13 00:53:50.489 | DEBUG | 检查模板文件: templates\exploration\res_treasure_box_click.png
+2025-09-13 00:53:50.489 | DEBUG | 文件存在，尝试加载: templates\exploration\res_treasure_box_click.png
+2025-09-13 00:53:50.489 | INFO | 成功加载模板: treasure_box
+2025-09-13 00:53:50.489 | DEBUG | 检查模板文件: templates\exploration\res_get_reward.png
+2025-09-13 00:53:50.489 | DEBUG | 文件存在，尝试加载: templates\exploration\res_get_reward.png
+2025-09-13 00:53:50.489 | INFO | 成功加载模板: get_reward
+2025-09-13 00:53:50.489 | DEBUG | 检查模板文件: templates\exploration\res_battle_reward.png
+2025-09-13 00:53:50.490 | DEBUG | 文件存在，尝试加载: templates\exploration\res_battle_reward.png
+2025-09-13 00:53:50.490 | INFO | 成功加载模板: battle_reward
+2025-09-13 00:53:50.490 | DEBUG | 检查模板文件: templates\exploration\res_e_auto_rotate_on.png
+2025-09-13 00:53:50.490 | DEBUG | 文件存在，尝试加载: templates\exploration\res_e_auto_rotate_on.png
+2025-09-13 00:53:50.490 | INFO | 成功加载模板: auto_rotate_on
+2025-09-13 00:53:50.490 | DEBUG | 检查模板文件: templates\exploration\res_e_auto_rotate_off.png
+2025-09-13 00:53:50.490 | DEBUG | 文件存在，尝试加载: templates\exploration\res_e_auto_rotate_off.png
+2025-09-13 00:53:50.490 | INFO | 成功加载模板: auto_rotate_off
+2025-09-13 00:53:50.490 | DEBUG | 检查模板文件: templates\exploration\res_swipe_end.png
+2025-09-13 00:53:50.490 | DEBUG | 文件存在，尝试加载: templates\exploration\res_swipe_end.png
+2025-09-13 00:53:50.491 | INFO | 成功加载模板: swipe_end
+2025-09-13 00:53:50.491 | DEBUG | 检查模板文件: templates\exploration\res_e_exit_confirm.png
+2025-09-13 00:53:50.491 | DEBUG | 文件存在，尝试加载: templates\exploration\res_e_exit_confirm.png
+2025-09-13 00:53:50.491 | INFO | 成功加载模板: exit_confirm
+2025-09-13 00:53:50.491 | DEBUG | 检查模板文件: templates\exploration\res_battle_start.png
+2025-09-13 00:53:50.491 | DEBUG | 文件存在，尝试加载: templates\exploration\res_battle_start.png
+2025-09-13 00:53:50.491 | INFO | 成功加载模板: battle_start
+2025-09-13 00:53:50.491 | DEBUG | 检查模板文件: templates\exploration\res_e_exploration_click.png
+2025-09-13 00:53:50.491 | DEBUG | 文件存在，尝试加载: templates\exploration\res_e_exploration_click.png
+2025-09-13 00:53:50.492 | INFO | 成功加载模板: exploration_click
+2025-09-13 00:53:50.492 | INFO | 任务配置:
+2025-09-13 00:53:50.492 | INFO | 探索章节: 第二十八章
+2025-09-13 00:53:50.492 | INFO | UP类型: 经验UP
+2025-09-13 00:53:50.492 | INFO | 战斗次数: 1
+2025-09-13 00:53:50.492 | INFO | 时间限制: 0:02:00
+2025-09-13 00:53:50.492 | INFO | 启动探索任务
+2025-09-13 00:53:50.492 | INFO | 
+2025-09-13 00:53:50.492 | INFO | >>> 开始任务: 探索任务 <<<
+2025-09-13 00:53:50.492 | INFO | 
+2025-09-13 00:53:50.492 | INFO | >>> 开始执行探索任务 - 第二十八章 <<<
+2025-09-13 00:53:50.492 | INFO | 正在进入探索界面...
+2025-09-13 00:53:50.859 | WARNING | 未找到探索入口，可能已在探索界面
+2025-09-13 00:53:50.859 | INFO | 正在选择章节: 第二十八章
+2025-09-13 00:54:33.574 | INFO | 
+2025-09-13 00:54:33.574 | INFO | >>> 探索任务统计 <<<
+2025-09-13 00:54:33.574 | INFO | 任务时长: 0:00:43.081614
+2025-09-13 00:54:33.575 | INFO | 战斗次数: 0
+2025-09-13 00:54:33.575 | INFO | 经验怪物: 0
+2025-09-13 00:54:33.575 | INFO | 金币怪物: 0
+2025-09-13 00:54:33.575 | INFO | 达摩怪物: 0
+2025-09-13 00:54:33.575 | INFO | 宝箱收集: 0
+2025-09-13 00:54:33.575 | ERROR | 探索任务失败
